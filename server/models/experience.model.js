@@ -1,7 +1,7 @@
 import { INTEGER, STRING } from 'sequelize';
 import { database } from '../config/context/database.js';
 const ProfessionalExperienceModel = database.define(
-  'professional_experience',
+  'professionalExperience',
   {
     id: {
       type: INTEGER,
@@ -17,11 +17,11 @@ const ProfessionalExperienceModel = database.define(
       allowNull: true,
     },
     startDate: {
-      type: DATE,
+      type: STRING,
       allowNull: true,
     },
     endDate: {
-      type: DATE,
+      type: STRING,
       allowNull: true,
     },
   }

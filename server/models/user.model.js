@@ -23,4 +23,4 @@ const UserModel = database.define(
     },
   }
 );
-export { UserModel, ContactModel };
+export { UserModel };

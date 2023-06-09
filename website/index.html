@@ -1,154 +1,521 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Login & Signup Form</title>
-    <link rel="stylesheet" href="main.css" />
-  </head>
-  <body>
-    <div class="container">
-      <h2>Login Form</h2>
-      <div id="loginResult"></div>
-      <div id="loginForm">
-        <div class="form-group">
-          <label for="username">username:</label>
-          <input
-            type="username"
-            id="username"
-            name="username"
-            placeholder="Enter your username"
-            required
-          />
+<title>João Nicolau</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="main.css" />
+<style>
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+</style>
+<body class="w3-light-grey">
+  <div class="navbar">
+    <a href="/website/login.html" class="login">Login</a>
+    </div>
+  </div>
+<!-- Page Container -->
+<div class="w3-content w3-margin-top" style="max-width:1400px;">
+ 
+  <!-- The Grid -->
+  <div class="w3-row-padding">
+  
+    <!-- Left Column -->
+    <div class="w3-third">
+    
+      <div class="w3-white w3-text-grey w3-card-4">
+        <div class="w3-display-container">
+          <img src="/w3images/avatar_hat.jpg" style="width:100%" alt="Avatar">
+          <div class="w3-display-bottomleft w3-container w3-text-black">
+            <h2>João Nicolau</h2>
+          </div>
         </div>
-        <div class="form-group">
-          <label for="password">Password:</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            placeholder="Enter your password"
-            required
-          />
+        <div class="w3-container">
+          <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Designer</p>
+          <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>London, UK</p>
+          <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>ex@mail.com</p>
+          <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>1224435534</p>
+          <hr>
+
+          <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Skills</b></p>
+          <p>Adobe Photoshop</p>
+          <div class="w3-light-grey w3-round-xlarge w3-small">
+            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:90%">90%</div>
+          </div>
+          <p>Photography</p>
+          <div class="w3-light-grey w3-round-xlarge w3-small">
+            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:80%">
+              <div class="w3-center w3-text-white">80%</div>
+            </div>
+          </div>
+          <p>Illustrator</p>
+          <div class="w3-light-grey w3-round-xlarge w3-small">
+            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:75%">75%</div>
+          </div>
+          <p>Media</p>
+          <div class="w3-light-grey w3-round-xlarge w3-small">
+            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:50%">50%</div>
+          </div>
+          <br>
+
+          <p class="w3-large w3-text-theme"><b><i class="fa fa-globe fa-fw w3-margin-right w3-text-teal"></i>Languages</b></p>
+          <p>English</p>
+          <div class="w3-light-grey w3-round-xlarge">
+            <div class="w3-round-xlarge w3-teal" style="height:24px;width:100%"></div>
+          </div>
+          <p>Spanish</p>
+          <div class="w3-light-grey w3-round-xlarge">
+            <div class="w3-round-xlarge w3-teal" style="height:24px;width:55%"></div>
+          </div>
+          <p>German</p>
+          <div class="w3-light-grey w3-round-xlarge">
+            <div class="w3-round-xlarge w3-teal" style="height:24px;width:25%"></div>
+          </div>
+          <br>
         </div>
-        <div class="form-group">
-          <button type="button" onclick="login()">Login</button>
-          <button type="button" onclick="getTodo()">Get Todo</button>
-        </div>
-      </div>
-      <div id="todoResult"></div>
+      </div><br>
+
+    <!-- End Left Column -->
     </div>
 
-    <div class="container">
-      <h2>Signup Form</h2>
-      <div id="signupResult"></div>
-      <div id="signupForm">
-        <div class="form-group">
-          <label for="username">username:</label>
-          <input
-            type="text"
-            id="signupUsername"
-            name="username"
-            placeholder="Enter your username"
-            required
-          />
+    <!-- Right Column -->
+    <div class="w3-twothird">
+
+      <div class="w3-container w3-card w3-white w3-margin-bottom">
+        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Work Experience</h2>
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b>Front End Developer / w3schools.com</b></h5>
+          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Jan 2015 - <span class="w3-tag w3-teal w3-round">Current</span></h6>
+          <p>Lorem ipsum dolor sit amet. Praesentium magnam consectetur vel in deserunt aspernatur est reprehenderit sunt hic. Nulla tempora soluta ea et odio, unde doloremque repellendus iure, iste.</p>
+          <hr>
         </div>
-        <div class="form-group">
-          <label for="password">Password:</label>
-          <input
-            type="password"
-            id="signupPassword"
-            name="password"
-            placeholder="Enter your password"
-            required
-          />
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b>Web Developer / something.com</b></h5>
+          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Mar 2012 - Dec 2014</h6>
+          <p>Consectetur adipisicing elit. Praesentium magnam consectetur vel in deserunt aspernatur est reprehenderit sunt hic. Nulla tempora soluta ea et odio, unde doloremque repellendus iure, iste.</p>
+          <hr>
         </div>
-        <div class="form-group">
-          <button type="button" onclick="signup()">Signup</button>
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b>Graphic Designer / designsomething.com</b></h5>
+          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Jun 2010 - Mar 2012</h6>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p><br>
         </div>
       </div>
+
+      <div class="w3-container w3-card w3-white">
+        <div class="w3-container">
+          <h2 class="w3-text-grey w3-padding-16">
+            <i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Education
+            <button id="editEducationBtn" class="w3-button w3-teal w3-round-small authenticated-button">Edit</button>
+            <button id="addAcademicBtn" class="w3-button w3-teal w3-round-small authenticated-button">Create</button>
+            <button id="deleteEducationBtn" class="w3-button w3-teal w3-round-small authenticated-button">Delete</button>
+          </h2>
+        </div>
+        <div id="education" class="w3-container">
+        </div>
+      </div>
+
+    <!-- End Right Column -->
     </div>
+    
+  <!-- End Grid -->
+  </div>
+  
+  <!-- End Page Container -->
+</div>
 
-    <script>
-      const getTodo = () => {
-        const url = 'http://localhost:4242/api/todo/getAll';
+<footer class="w3-container w3-teal w3-center w3-margin-top">
+  <p>Find me on social media.</p>
+  <i class="fa fa-facebook-official w3-hover-opacity"></i>
+  <i class="fa fa-instagram w3-hover-opacity"></i>
+  <i class="fa fa-snapchat w3-hover-opacity"></i>
+  <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+  <i class="fa fa-twitter w3-hover-opacity"></i>
+  <i class="fa fa-linkedin w3-hover-opacity"></i>
+  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+</footer>
 
-        const token = localStorage.getItem('token');
+<script>
+  function checkAuthentication() {
+    // Verificar se o usuário está autenticado
+    const token = localStorage.getItem('token');
+    const isAuthenticated = token !== null;
+  
+    // Obter os elementos dos botões
+    const editButton = document.getElementById('editEducationBtn');
+    const createButton = document.getElementById('addAcademicBtn');
+    const deleteButton = document.getElementById('deleteEducationBtn');
+  
+    // Exibir ou ocultar os botões com base na autenticação
+    editButton.style.display = isAuthenticated ? 'block' : 'none';
+    createButton.style.display = isAuthenticated ? 'block' : 'none';
+    deleteButton.style.display = isAuthenticated ? 'block' : 'none';
+  }
+  
+  // Chamar a função de verificação de autenticação ao carregar a página
+  checkAuthentication();
+</script>
 
-        fetch(url, {
-          method: 'GET',
-          headers: {
-            Authorization: 'Bearer ' + token,
-          },
-        })
-          .then((response) => response.json())
-          .then((data) => {
-            console.log(data);
-            document.getElementById('todoResult').innerHTML =
-              JSON.stringify(data);
-          })
-          .catch((error) => {
-            console.error('Error:', error);
-          });
+<script>
+  function exibirInformacaoAcademica() {
+    const url = 'http://localhost:4242/api/academic/';  // Rota para obter as informações acadêmicas do backend
+  
+    fetch(url)
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error('Erro ao obter informações acadêmicas');
+        }
+      })
+      .then(data => {
+        // Limpar o conteúdo atual da seção de educação
+        const educationDiv = document.getElementById('education');
+        educationDiv.innerHTML = '';
+  
+        // Iterar sobre os dados retornados e criar elementos HTML para cada informação acadêmica
+        data.forEach(academicData => {
+          const academicCard = document.createElement('div');
+          academicCard.className = 'w3-container';
+  
+          const institutionHeader = document.createElement('h5');
+          institutionHeader.className = 'w3-opacity';
+          institutionHeader.textContent = academicData.institution;
+  
+          const graduationYearHeader = document.createElement('h6');
+          graduationYearHeader.className = 'w3-text-teal';
+          graduationYearHeader.innerHTML = `<i class="fa fa-calendar fa-fw w3-margin-right"></i>${academicData.graduationYear}`;
+  
+          const degreeParagraph = document.createElement('p');
+          degreeParagraph.textContent = academicData.degree;
+  
+          academicCard.appendChild(institutionHeader);
+          academicCard.appendChild(graduationYearHeader);
+          academicCard.appendChild(degreeParagraph);
+  
+          educationDiv.appendChild(academicCard);
+        });
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }
+</script>
+<script>
+  document.getElementById('addAcademicBtn').addEventListener('click', function() {
+    // Exibir o formulário de adição de informações acadêmicas ou executar a ação desejada
+    console.log('Botão de adicionar informações acadêmicas clicado!');
+    
+    const form = document.createElement('form');
+    form.id = 'academicForm';
+    
+    const degreeLabel = document.createElement('label');
+    degreeLabel.textContent = 'Grau:';
+    const degreeInput = document.createElement('input');
+    degreeInput.type = 'text';
+    degreeInput.id = 'degree';
+    degreeInput.name = 'degree';
+    degreeInput.required = true;
+    
+    const institutionLabel = document.createElement('label');
+    institutionLabel.textContent = 'Instituição:';
+    const institutionInput = document.createElement('input');
+    institutionInput.type = 'text';
+    institutionInput.id = 'institution';
+    institutionInput.name = 'institution';
+    institutionInput.required = true;
+    
+    const graduationYearLabel = document.createElement('label');
+    graduationYearLabel.textContent = 'Ano de Graduação:';
+    const graduationYearInput = document.createElement('input');
+    graduationYearInput.type = 'number';
+    graduationYearInput.id = 'graduationYear';
+    graduationYearInput.name = 'graduationYear';
+    graduationYearInput.required = true;
+    
+    const submitButton = document.createElement('button');
+    submitButton.type = 'submit';
+    submitButton.textContent = 'Adicionar';
+    
+    form.appendChild(degreeLabel);
+    form.appendChild(degreeInput);
+    form.appendChild(institutionLabel);
+    form.appendChild(institutionInput);
+    form.appendChild(graduationYearLabel);
+    form.appendChild(graduationYearInput);
+    form.appendChild(submitButton);
+
+    // Função para exibir a informação acadêmica criada
+    function exibirInformacaoAcademica(academicData) {
+      const educationDiv = document.getElementById('education');
+
+      const academicCard = document.createElement('div');
+      academicCard.className = 'w3-container';
+
+      const institutionHeader = document.createElement('h5');
+      institutionHeader.className = 'w3-opacity';
+      institutionHeader.textContent = academicData.institution;
+
+      const graduationYearHeader = document.createElement('h6');
+      graduationYearHeader.className = 'w3-text-teal';
+      graduationYearHeader.innerHTML = `<i class="fa fa-calendar fa-fw w3-margin-right"></i>${academicData.graduationYear}`;
+
+      const degreeParagraph = document.createElement('p');
+      degreeParagraph.textContent = academicData.degree;
+
+      academicCard.appendChild(institutionHeader);
+      academicCard.appendChild(graduationYearHeader);
+      academicCard.appendChild(degreeParagraph);
+
+      educationDiv.appendChild(academicCard);
+    }
+    
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      // Obter os valores dos campos do formulário
+      const degree = document.getElementById('degree').value;
+      const institution = document.getElementById('institution').value;
+      const graduationYear = document.getElementById('graduationYear').value;
+      
+      // Criar um objeto com os dados do formulário
+      const academicData = {
+        degree,
+        institution,
+        graduationYear
       };
+      
+      const url = 'http://localhost:4242/api/academic/create';
 
-      function login() {
-        const username = document.getElementById('username').value;
-        const password = document.getElementById('password').value;
+      // Enviar a requisição para o servidor usando a API Fetch
+      fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(academicData)
+      })
+      .then(response => {
+        if (response.ok) {
+          // A requisição foi bem-sucedida, os dados foram armazenados no banco de dados
+          console.log('Informações acadêmicas foram adicionadas com sucesso');
+          // Chamar a função para exibir a informação acadêmica criada
+          exibirInformacaoAcademica(academicData);
+          // Limpar o formulário após o envio
+          form.reset();
+        } else {
+          // A requisição falhou
+          throw new Error('Erro ao adicionar informações acadêmicas');
+        }
+      })
+      .catch(error => {
+        // Ocorreu um erro ao enviar a requisição
+        console.error(error);
+      });
+    });
+    
+    document.body.appendChild(form);
+  });
+</script>
 
-        // Replace with your login endpoint URL
-        const url = 'http://localhost:4242/api/user/login';
+<script>
+  window.onload = (event) => {
+    exibirInformacaoAcademica();
+  };
+</script>
 
-        const requestBody = { username, password };
+<script>
+  document.getElementById('editEducationBtn').addEventListener('click', function() {
+    // Exibir o formulário de adição de informações acadêmicas ou executar a ação desejada
+    console.log('Botão de editar informações acadêmicas clicado!');
+    
+    const form = document.createElement('form');
+    form.id = 'editForm';
+    
+    const idLabel = document.createElement('label');
+    idLabel.textContent = 'Id:';
+    const idInput = document.createElement('input');
+    idInput.type = 'number';
+    idInput.id = 'id';
+    idInput.name = 'id';
+    idInput.required = true;
 
-        fetch(url, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(requestBody),
-        })
-          .then((response) => response.json())
-          .then((data) => {
-            localStorage.setItem('token', data.token);
+    const degreeLabel = document.createElement('label');
+    degreeLabel.textContent = 'Grau:';
+    const degreeInput = document.createElement('input');
+    degreeInput.type = 'text';
+    degreeInput.id = 'degree';
+    degreeInput.name = 'degree';
+    degreeInput.required = true;
+    
+    const institutionLabel = document.createElement('label');
+    institutionLabel.textContent = 'Instituição:';
+    const institutionInput = document.createElement('input');
+    institutionInput.type = 'text';
+    institutionInput.id = 'institution';
+    institutionInput.name = 'institution';
+    institutionInput.required = true;
+    
+    const graduationYearLabel = document.createElement('label');
+    graduationYearLabel.textContent = 'Ano de Graduação:';
+    const graduationYearInput = document.createElement('input');
+    graduationYearInput.type = 'number';
+    graduationYearInput.id = 'graduationYear';
+    graduationYearInput.name = 'graduationYear';
+    graduationYearInput.required = true;
+    
+    const submitButton = document.createElement('button');
+    submitButton.type = 'submit';
+    submitButton.textContent = 'Atualizar';
+    
+    form.appendChild(idLabel);
+    form.appendChild(idInput);
+    form.appendChild(degreeLabel);
+    form.appendChild(degreeInput);
+    form.appendChild(institutionLabel);
+    form.appendChild(institutionInput);
+    form.appendChild(graduationYearLabel);
+    form.appendChild(graduationYearInput);
+    form.appendChild(submitButton);
+    
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      // Obter os valores dos campos do formulário
+      const id = document.getElementById('id').value;
+      const degree = document.getElementById('degree').value;
+      const institution = document.getElementById('institution').value;
+      const graduationYear = document.getElementById('graduationYear').value;
+      
+      // Criar um objeto com os dados do formulário
+      const academicData = {
+        id,
+        degree,
+        institution,
+        graduationYear
+      };
+      
+      const url = `http://localhost:4242/api/academic/${id}`;
 
-            // Handle login response
-            document.getElementById('loginResult').innerHTML =
-              JSON.stringify(data);
+      // Enviar a requisição para o servidor usando a API Fetch
+      fetch(url, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(academicData)
+      })
+      .then(response => {
+        if (response.ok) {
+          // A requisição foi bem-sucedida, os dados foram armazenados no banco de dados
+          console.log('Informações acadêmicas foram editadas com sucesso');
+          // Chamar a função para exibir a informação acadêmica criada
+          exibirInformacaoAcademica(academicData);
+          // Limpar o formulário após o envio
+          form.reset();
+        } else {
+          // A requisição falhou
+          throw new Error('Erro ao editar informações acadêmicas');
+        }
+      })
+      .catch(error => {
+        // Ocorreu um erro ao enviar a requisição
+        console.error(error);
+      });
+    });
+    
+    document.body.appendChild(form);
+  });
+</script>
 
-            // Redirect to index page
-            window.location.href = 'index.html';            
-          })
-          .catch((error) => {
-            console.error('Error:', error);
+<script>
+  document.getElementById('deleteEducationBtn').addEventListener('click', function() {
+    // Exibir a confirmação de apagar
+    console.log('Botão de apagar de informações acadêmicas clicado!');
+    
+    const form = document.createElement('form');
+    form.id = 'deleteForm';
+    
+    const idLabel = document.createElement('label');
+    idLabel.textContent = 'Id:';
+    const idInput = document.createElement('input');
+    idInput.type = 'number';
+    idInput.id = 'deleteId';
+    idInput.name = 'deleteId';
+    idInput.required = true;
+    
+    const submitButton = document.createElement('button');
+    submitButton.type = 'submit';
+    submitButton.textContent = 'Excluir';
+    
+    form.appendChild(idLabel);
+    form.appendChild(idInput);
+    form.appendChild(submitButton);
+    
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      // Obter o valor do campo de ID
+      const id = document.getElementById('deleteId').value;
+      
+      const url = `http://localhost:4242/api/academic/${id}`;
+
+      // Enviar a requisição para o servidor usando a API Fetch
+      fetch(url, {
+        method: 'DELETE',
+      })
+      .then(response => {
+        if (response.ok) {
+          // A requisição foi bem-sucedida, os dados foram apagadas do banco de dados
+          console.log('Informações acadêmicas foram apagadas com sucesso');
+          // Remover a informação acadêmica da exibição
+          removerInformacaoAcademica(id);
+          // Atualizar as informações acadêmicas após a exclusão
+          atualizarInformacoesAcademicas();
+          // Limpar o formulário após o envio
+          form.reset();
+        } else {
+          // A requisição falhou
+          throw new Error('Erro ao apagar informações acadêmicas');
+        }
+      })
+      .catch(error => {
+        // Ocorreu um erro ao enviar a requisição
+        console.error(error);
+      });
+    });
+    
+    document.body.appendChild(form);
+  });
+
+  // Função para remover a informação acadêmica da exibição
+  function removerInformacaoAcademica(id) {
+    const academicCard = document.getElementById(`academic-${id}`);
+    if (academicCard) {
+      academicCard.remove();
+    }
+  }
+  
+    // Função para atualizar as informações acadêmicas após a exclusão
+    function atualizarInformacoesAcademicas() {
+      // Limpar a exibição atual
+      const educationDiv = document.getElementById('education');
+      educationDiv.innerHTML = '';
+  
+      // Requisitar e exibir as novas informações acadêmicas
+      fetch('http://localhost:4242/api/academic/')
+        .then(response => response.json())
+        .then(data => {
+          data.forEach(academicData => {
+            exibirInformacaoAcademica(academicData);
           });
-      }
-
-      function signup() {
-        const username = document.getElementById('signupUsername').value;
-        const password = document.getElementById('signupPassword').value;
-
-        // Replace with your signup endpoint URL
-        const url = 'http://localhost:4242/api/user/register';
-
-        const requestBody = { username, password };
-
-        fetch(url, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(requestBody),
         })
-          .then((response) => response.json())
-          .then((data) => {
-            console.log(data);
-            // Handle signup response
-            document.getElementById('signupResult').innerHTML =
-              JSON.stringify(data);
-          })
-          .catch((error) => {
-            console.error('Error:', error);
-          });
-      }
-    </script>
-  </body>
+        .catch(error => {
+          console.error(error);
+        });
+    }
+</script>
+
+</body>
 </html>

@@ -1,7 +1,7 @@
 import { INTEGER, STRING } from 'sequelize';
 import { database } from '../config/context/database.js';
 const AcademicQualificationModel = database.define(
-  'academic_qualification',
+  'academicQualification',
   {
     id: {
       type: INTEGER,
