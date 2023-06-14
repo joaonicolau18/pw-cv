@@ -25,3 +25,47 @@ export const getProfessionalExperience = async (req, res) => {
     return res.status(500).json({ error: 'Internal server error' });
   }
 };
+
+export const updateProfessionalExperience = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { company, position, startDate, endDate } = req.body;
+
+    const professionalExperience = await ProfessionalExperienceModel.findByPk(id);
+
+    if (!professionalExperience) {
+      return res.status(404).json({ error: 'Professional experience not found' });
+    }
+
+    professionalExperience.company = company;
+    professionalExperience.position = position;
+    professionalExperience.startDate = startDate;
+    professionalExperience.endDate = endDate;
+
+    await professionalExperience.save();
+
+    return res.json({ message: 'Professional experience updated successfully' });
+  } catch (error) {
+    console.error('Error updating professional experience:', error);
+    return res.status(500).json({ error: 'Internal server error' });
+  }
+};
+
+export const deleteProfessionalExperience = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const professionalExperience = await ProfessionalExperienceModel.findByPk(id);
+
+    if (!professionalExperience) {
+      return res.status(404).json({ error: 'Professional experience not found' });
+    }
+
+    await professionalExperience.destroy();
+
+    return res.json({ message: 'Professional experience deleted successfully' });
+  } catch (error) {
+    console.error('Error deleting professional experience:', error);
+    return res.status(500).json({ error: 'Internal server error' });
+  }
+};

@@ -12,6 +12,10 @@ body {
   top: 0;
 }
 
+.title {
+  color: white;
+}
+
 .login {
   background:url('https://dh3vbjnk0bnfa.cloudfront.net/static/centralauth/images/btn-login.png') no-repeat 5px 5px #484B4F;
   width: 100px;
@@ -82,4 +86,101 @@ h2 {
 
 .form-group button:hover {
   background-color: #45a049;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  width: 50%;
+  max-width: 400px;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.modal-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.modal-body {
+  margin-bottom: 20px;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.modal-footer button {
+  margin-left: 10px;
+}
+
+.close-btn {
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: #0c0c0c;
+}
+
+.close-btn:hover {
+  color: #e40a0a;
+} 
+
+.edit-button {
+  background-color: #4CAF50; 
+  color: white; 
+  border: none;
+  padding: 7px 10px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 10px;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition-duration: 0.4s;
+}
+
+.edit-button:hover {
+  background-color: #45a049; 
+}
+
+.delete-button {
+  background-color: #f44336; 
+  color: white; 
+  border: none;
+  padding: 7px 10px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 10px;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition-duration: 0.4s;
+}
+
+.delete-button:hover {
+  background-color: #d32f2f;
 }

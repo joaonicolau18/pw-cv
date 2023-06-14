@@ -26,51 +26,60 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
     
       <div class="w3-white w3-text-grey w3-card-4">
         <div class="w3-display-container">
-          <img src="/w3images/avatar_hat.jpg" style="width:100%" alt="Avatar">
+          <img src="/website/boa1.jpg" style="width:100%" alt="Avatar">
           <div class="w3-display-bottomleft w3-container w3-text-black">
-            <h2>João Nicolau</h2>
+            <h2 class="title">João Nicolau</h2>
           </div>
         </div>
         <div class="w3-container">
-          <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Designer</p>
           <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>London, UK</p>
           <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>ex@mail.com</p>
           <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>1224435534</p>
           <hr>
 
           <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Skills</b></p>
-          <p>Adobe Photoshop</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:90%">90%</div>
-          </div>
-          <p>Photography</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:80%">
-              <div class="w3-center w3-text-white">80%</div>
+          <button id="addSkillBtn" style="border-radius: 10px;" class="w3-button w3-teal w3-round-small">Adicionar</button>
+          <div id="skillContainer"></div>
+          <div id="addModalSkill" class="modal">
+            <div class="modal-content w3-animate-zoom" >
+              <div class="modal-header">
+                <h3 class="modal-title">Adicionar Skill</h3>
+                <button id="closeModalBtn" class="close-btn">&times;</button>
+              </div>
+              <div class="modal-body">
+                <label for="newSkill">Skill:</label>
+                <input style="border-radius: 10px;" type="text" id="newSkill" name="newSkill" required>
+                <br>
+                <br>
+                <label for="newLevel">Nivel (%):</label>
+                <input style="border-radius: 10px;" type="number" id="newLevel" name="newLevel" min="0" max="100" required>
+              </div>
+              <div class="modal-footer">
+                <button id="saveSkillBtn" style="border-radius: 10px;" class="w3-button w3-teal w3-round-small">Adicionar</button>
+              </div>
             </div>
           </div>
-          <p>Illustrator</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:75%">75%</div>
-          </div>
-          <p>Media</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:50%">50%</div>
-          </div>
-          <br>
-
           <p class="w3-large w3-text-theme"><b><i class="fa fa-globe fa-fw w3-margin-right w3-text-teal"></i>Languages</b></p>
-          <p>English</p>
-          <div class="w3-light-grey w3-round-xlarge">
-            <div class="w3-round-xlarge w3-teal" style="height:24px;width:100%"></div>
-          </div>
-          <p>Spanish</p>
-          <div class="w3-light-grey w3-round-xlarge">
-            <div class="w3-round-xlarge w3-teal" style="height:24px;width:55%"></div>
-          </div>
-          <p>German</p>
-          <div class="w3-light-grey w3-round-xlarge">
-            <div class="w3-round-xlarge w3-teal" style="height:24px;width:25%"></div>
+          <button id="addLanguageBtn" style="border-radius: 10px;" class="w3-button w3-teal w3-round-small">Adicionar</button>
+          <div id="LanguageContainer"></div>
+          <div id="addModalLanguage" class="modal">
+            <div class="modal-content w3-animate-zoom" >
+              <div class="modal-header">
+                <h3 class="modal-title">Adicionar Languages</h3>
+                <button id="closeModalLanguagesBtn" class="close-btn">&times;</button>
+              </div>
+              <div class="modal-body">
+                <label for="newLanguage">Language:</label>
+                <input style="border-radius: 10px;" type="text" id="newLanguage" name="newLanguage" required>
+                <br>
+                <br>
+                <label for="newLevelLanguages">Nivel (%):</label>
+                <input style="border-radius: 10px;" type="number" id="newLevelLanguages" name="newLevelLanguages" min="0" max="100" required>
+              </div>
+              <div class="modal-footer">
+                <button id="saveLanguageBtn" style="border-radius: 10px;" class="w3-button w3-teal w3-round-small">Adicionar</button>
+              </div>
+            </div>
           </div>
           <br>
         </div>
@@ -82,38 +91,133 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
     <!-- Right Column -->
     <div class="w3-twothird">
 
-      <div class="w3-container w3-card w3-white w3-margin-bottom">
-        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Work Experience</h2>
+      <div class="w3-container w3-card w3-white">
         <div class="w3-container">
-          <h5 class="w3-opacity"><b>Front End Developer / w3schools.com</b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Jan 2015 - <span class="w3-tag w3-teal w3-round">Current</span></h6>
-          <p>Lorem ipsum dolor sit amet. Praesentium magnam consectetur vel in deserunt aspernatur est reprehenderit sunt hic. Nulla tempora soluta ea et odio, unde doloremque repellendus iure, iste.</p>
-          <hr>
+          <h2 class="w3-text-grey w3-padding-16">
+            <i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Work Experience
+            <button id="addExperienceBtn" style="border-radius: 10px;" class="w3-button w3-teal w3-round-small authenticated-button" onclick="abrirExperienceModal()">Adicionar</button>
+          </h2>
         </div>
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>Web Developer / something.com</b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Mar 2012 - Dec 2014</h6>
-          <p>Consectetur adipisicing elit. Praesentium magnam consectetur vel in deserunt aspernatur est reprehenderit sunt hic. Nulla tempora soluta ea et odio, unde doloremque repellendus iure, iste.</p>
-          <hr>
+        <div id="experienceModal" class="modal">
+          <div class="modal-content w3-animate-zoom" style="border-radius: 10px;">
+            <div class="modal-header">
+              <h3 class="modal-title">Adicionar Experiência Profissional</h3>
+              <button id="closeExperienceBtn" class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+              <form id="experienceForm">
+                <label for="position">Posição:</label>
+                <input style="border-radius: 10px;" type="text" id="position" name="position" required>
+                <br>
+                <br>
+                <label for="company">Empresa:</label>
+                <input style="border-radius: 10px;" type="text" id="company" name="company" required>
+                <br>
+                <br>
+                <label for="startDate">Data de Inicio:</label>
+                <input style="border-radius: 10px;" type="text" id="startDate" name="startDate" required>
+                <br>
+                <br>
+                <label for="endDate">Data de Fim:</label>
+                <input style="border-radius: 10px;" type="text" id="endDate" name="endDate" required>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button id="saveExperienceBtn" style="border-radius: 10px;" class="w3-button w3-teal w3-round-small">Adicionar</button>
+            </div>
+          </div>
         </div>
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>Graphic Designer / designsomething.com</b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Jun 2010 - Mar 2012</h6>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p><br>
-        </div>
+        <div id="editExperienceModal" class="modal">
+          <div class="modal-content w3-animate-zoom" style="border-radius: 10px;">
+            <div class="modal-header">
+              <h3 class="modal-title">Editar Experiência Profissional</h3>
+              <button id="closeEditExperienceBtn" class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+              <form id="editExperienceForm">
+                <label for="editPosition">Posição:</label>
+                <input style="border-radius: 10px;" type="text" id="editPosition" name="editPosition" required>
+                <br>
+                <br>
+                <label for="editCompany">Empresa:</label>
+                <input style="border-radius: 10px;" type="text" id="editCompany" name="editCompany" required>
+                <br>
+                <br>
+                <label for="editStartDate">Data de Inicio:</label>
+                <input style="border-radius: 10px;" type="text" id="editStartDate" name="editStartDate" required>
+                <br>
+                <br>
+                <label for="editEndDate">Data de Fim:</label>
+                <input style="border-radius: 10px;" id="editEndDate" name="editEndDate" required></input>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button style="border-radius: 10px;" type="button" id="saveEditExperienceBtn" class="w3-button w3-teal w3-round-small">Atualizar</button>
+            </div>
+          </div>
+        </div>        
+        <div id="professionalExperience" class="w3-container"></div>
       </div>
 
       <div class="w3-container w3-card w3-white">
         <div class="w3-container">
           <h2 class="w3-text-grey w3-padding-16">
             <i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Education
-            <button id="editEducationBtn" class="w3-button w3-teal w3-round-small authenticated-button">Edit</button>
-            <button id="addAcademicBtn" class="w3-button w3-teal w3-round-small authenticated-button">Create</button>
-            <button id="deleteEducationBtn" class="w3-button w3-teal w3-round-small authenticated-button">Delete</button>
+            <button id="addAcademicBtn" style="border-radius: 10px;" class="w3-button w3-teal w3-round-small authenticated-button" onclick="abrirModal()">Adicionar</button>
           </h2>
         </div>
-        <div id="education" class="w3-container">
+        <div id="academicModal" class="modal">
+          <div class="modal-content w3-animate-zoom" style="border-radius: 10px;">
+            <div class="modal-header">
+              <h3 class="modal-title">Adicionar Informações Acadêmicas</h3>
+              <button id="closeAcademicBtn" class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+              <form id="academicForm">
+                <label for="degree">Grau:</label>
+                <input style="border-radius: 10px;" type="text" id="degree" name="degree" required>
+                <br>
+                <br>
+                <label for="institution">Instituição:</label>
+                <input style="border-radius: 10px;" type="text" id="institution" name="institution" required>
+                <br>
+                <br>
+                <label for="graduationYear">Ano de Conclusão:</label>
+                <input style="border-radius: 10px;" type="text" id="graduationYear" name="graduationYear" min="1990" max="2050" required>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button id="saveAcademicBtn" style="border-radius: 10px;" class="w3-button w3-teal w3-round-small">Adicionar</button>
+            </div>
+          </div>
         </div>
+        <!-- Modal de Edição -->
+        <div id="editAcademicModal" class="modal">
+          <div class="modal-content w3-animate-zoom" style="border-radius: 10px;">
+            <div class="modal-header">
+              <h3 class="modal-title">Editar Informações Acadêmicas</h3>
+              <button id="closeEditAcademicBtn" class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <label for="editDegree">Grau:</label>
+                <input style="border-radius: 10px;" type="text" id="editDegree"  required>
+                <br>
+                <br>
+                <label for="editInstitution">Instituição:</label>
+                <input style="border-radius: 10px;" type="text" id="editInstitution"  required>
+                <br>
+                <br>
+                <label for="editGraduationYear">Ano de Conclusão:</label>
+                <input style="border-radius: 10px;" type="text" id="editGraduationYear"  required>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button id="saveEditAcademicBtn" style="border-radius: 10px;" class="w3-button w3-teal w3-round-small">Atualizar</button>
+            </div>
+          </div>
+        </div>
+        <div id="education" class="w3-container"></div>
       </div>
 
     <!-- End Right Column -->
@@ -126,396 +230,12 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 </div>
 
 <footer class="w3-container w3-teal w3-center w3-margin-top">
-  <p>Find me on social media.</p>
-  <i class="fa fa-facebook-official w3-hover-opacity"></i>
-  <i class="fa fa-instagram w3-hover-opacity"></i>
-  <i class="fa fa-snapchat w3-hover-opacity"></i>
-  <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-  <i class="fa fa-twitter w3-hover-opacity"></i>
-  <i class="fa fa-linkedin w3-hover-opacity"></i>
-  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+  <p>João Nicolau </p>
 </footer>
 
-<script>
-  function checkAuthentication() {
-    // Verificar se o usuário está autenticado
-    const token = localStorage.getItem('token');
-    const isAuthenticated = token !== null;
-  
-    // Obter os elementos dos botões
-    const editButton = document.getElementById('editEducationBtn');
-    const createButton = document.getElementById('addAcademicBtn');
-    const deleteButton = document.getElementById('deleteEducationBtn');
-  
-    // Exibir ou ocultar os botões com base na autenticação
-    editButton.style.display = isAuthenticated ? 'block' : 'none';
-    createButton.style.display = isAuthenticated ? 'block' : 'none';
-    deleteButton.style.display = isAuthenticated ? 'block' : 'none';
-  }
-  
-  // Chamar a função de verificação de autenticação ao carregar a página
-  checkAuthentication();
+<script src="main.js">
 </script>
 
-<script>
-  function exibirInformacaoAcademica() {
-    const url = 'http://localhost:4242/api/academic/';  // Rota para obter as informações acadêmicas do backend
-  
-    fetch(url)
-      .then(response => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          throw new Error('Erro ao obter informações acadêmicas');
-        }
-      })
-      .then(data => {
-        // Limpar o conteúdo atual da seção de educação
-        const educationDiv = document.getElementById('education');
-        educationDiv.innerHTML = '';
-  
-        // Iterar sobre os dados retornados e criar elementos HTML para cada informação acadêmica
-        data.forEach(academicData => {
-          const academicCard = document.createElement('div');
-          academicCard.className = 'w3-container';
-  
-          const institutionHeader = document.createElement('h5');
-          institutionHeader.className = 'w3-opacity';
-          institutionHeader.textContent = academicData.institution;
-  
-          const graduationYearHeader = document.createElement('h6');
-          graduationYearHeader.className = 'w3-text-teal';
-          graduationYearHeader.innerHTML = `<i class="fa fa-calendar fa-fw w3-margin-right"></i>${academicData.graduationYear}`;
-  
-          const degreeParagraph = document.createElement('p');
-          degreeParagraph.textContent = academicData.degree;
-  
-          academicCard.appendChild(institutionHeader);
-          academicCard.appendChild(graduationYearHeader);
-          academicCard.appendChild(degreeParagraph);
-  
-          educationDiv.appendChild(academicCard);
-        });
-      })
-      .catch(error => {
-        console.error(error);
-      });
-  }
-</script>
-<script>
-  document.getElementById('addAcademicBtn').addEventListener('click', function() {
-    // Exibir o formulário de adição de informações acadêmicas ou executar a ação desejada
-    console.log('Botão de adicionar informações acadêmicas clicado!');
-    
-    const form = document.createElement('form');
-    form.id = 'academicForm';
-    
-    const degreeLabel = document.createElement('label');
-    degreeLabel.textContent = 'Grau:';
-    const degreeInput = document.createElement('input');
-    degreeInput.type = 'text';
-    degreeInput.id = 'degree';
-    degreeInput.name = 'degree';
-    degreeInput.required = true;
-    
-    const institutionLabel = document.createElement('label');
-    institutionLabel.textContent = 'Instituição:';
-    const institutionInput = document.createElement('input');
-    institutionInput.type = 'text';
-    institutionInput.id = 'institution';
-    institutionInput.name = 'institution';
-    institutionInput.required = true;
-    
-    const graduationYearLabel = document.createElement('label');
-    graduationYearLabel.textContent = 'Ano de Graduação:';
-    const graduationYearInput = document.createElement('input');
-    graduationYearInput.type = 'number';
-    graduationYearInput.id = 'graduationYear';
-    graduationYearInput.name = 'graduationYear';
-    graduationYearInput.required = true;
-    
-    const submitButton = document.createElement('button');
-    submitButton.type = 'submit';
-    submitButton.textContent = 'Adicionar';
-    
-    form.appendChild(degreeLabel);
-    form.appendChild(degreeInput);
-    form.appendChild(institutionLabel);
-    form.appendChild(institutionInput);
-    form.appendChild(graduationYearLabel);
-    form.appendChild(graduationYearInput);
-    form.appendChild(submitButton);
-
-    // Função para exibir a informação acadêmica criada
-    function exibirInformacaoAcademica(academicData) {
-      const educationDiv = document.getElementById('education');
-
-      const academicCard = document.createElement('div');
-      academicCard.className = 'w3-container';
-
-      const institutionHeader = document.createElement('h5');
-      institutionHeader.className = 'w3-opacity';
-      institutionHeader.textContent = academicData.institution;
-
-      const graduationYearHeader = document.createElement('h6');
-      graduationYearHeader.className = 'w3-text-teal';
-      graduationYearHeader.innerHTML = `<i class="fa fa-calendar fa-fw w3-margin-right"></i>${academicData.graduationYear}`;
-
-      const degreeParagraph = document.createElement('p');
-      degreeParagraph.textContent = academicData.degree;
-
-      academicCard.appendChild(institutionHeader);
-      academicCard.appendChild(graduationYearHeader);
-      academicCard.appendChild(degreeParagraph);
-
-      educationDiv.appendChild(academicCard);
-    }
-    
-    form.addEventListener('submit', function(event) {
-      event.preventDefault();
-      
-      // Obter os valores dos campos do formulário
-      const degree = document.getElementById('degree').value;
-      const institution = document.getElementById('institution').value;
-      const graduationYear = document.getElementById('graduationYear').value;
-      
-      // Criar um objeto com os dados do formulário
-      const academicData = {
-        degree,
-        institution,
-        graduationYear
-      };
-      
-      const url = 'http://localhost:4242/api/academic/create';
-
-      // Enviar a requisição para o servidor usando a API Fetch
-      fetch(url, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(academicData)
-      })
-      .then(response => {
-        if (response.ok) {
-          // A requisição foi bem-sucedida, os dados foram armazenados no banco de dados
-          console.log('Informações acadêmicas foram adicionadas com sucesso');
-          // Chamar a função para exibir a informação acadêmica criada
-          exibirInformacaoAcademica(academicData);
-          // Limpar o formulário após o envio
-          form.reset();
-        } else {
-          // A requisição falhou
-          throw new Error('Erro ao adicionar informações acadêmicas');
-        }
-      })
-      .catch(error => {
-        // Ocorreu um erro ao enviar a requisição
-        console.error(error);
-      });
-    });
-    
-    document.body.appendChild(form);
-  });
-</script>
-
-<script>
-  window.onload = (event) => {
-    exibirInformacaoAcademica();
-  };
-</script>
-
-<script>
-  document.getElementById('editEducationBtn').addEventListener('click', function() {
-    // Exibir o formulário de adição de informações acadêmicas ou executar a ação desejada
-    console.log('Botão de editar informações acadêmicas clicado!');
-    
-    const form = document.createElement('form');
-    form.id = 'editForm';
-    
-    const idLabel = document.createElement('label');
-    idLabel.textContent = 'Id:';
-    const idInput = document.createElement('input');
-    idInput.type = 'number';
-    idInput.id = 'id';
-    idInput.name = 'id';
-    idInput.required = true;
-
-    const degreeLabel = document.createElement('label');
-    degreeLabel.textContent = 'Grau:';
-    const degreeInput = document.createElement('input');
-    degreeInput.type = 'text';
-    degreeInput.id = 'degree';
-    degreeInput.name = 'degree';
-    degreeInput.required = true;
-    
-    const institutionLabel = document.createElement('label');
-    institutionLabel.textContent = 'Instituição:';
-    const institutionInput = document.createElement('input');
-    institutionInput.type = 'text';
-    institutionInput.id = 'institution';
-    institutionInput.name = 'institution';
-    institutionInput.required = true;
-    
-    const graduationYearLabel = document.createElement('label');
-    graduationYearLabel.textContent = 'Ano de Graduação:';
-    const graduationYearInput = document.createElement('input');
-    graduationYearInput.type = 'number';
-    graduationYearInput.id = 'graduationYear';
-    graduationYearInput.name = 'graduationYear';
-    graduationYearInput.required = true;
-    
-    const submitButton = document.createElement('button');
-    submitButton.type = 'submit';
-    submitButton.textContent = 'Atualizar';
-    
-    form.appendChild(idLabel);
-    form.appendChild(idInput);
-    form.appendChild(degreeLabel);
-    form.appendChild(degreeInput);
-    form.appendChild(institutionLabel);
-    form.appendChild(institutionInput);
-    form.appendChild(graduationYearLabel);
-    form.appendChild(graduationYearInput);
-    form.appendChild(submitButton);
-    
-    form.addEventListener('submit', function(event) {
-      event.preventDefault();
-      
-      // Obter os valores dos campos do formulário
-      const id = document.getElementById('id').value;
-      const degree = document.getElementById('degree').value;
-      const institution = document.getElementById('institution').value;
-      const graduationYear = document.getElementById('graduationYear').value;
-      
-      // Criar um objeto com os dados do formulário
-      const academicData = {
-        id,
-        degree,
-        institution,
-        graduationYear
-      };
-      
-      const url = `http://localhost:4242/api/academic/${id}`;
-
-      // Enviar a requisição para o servidor usando a API Fetch
-      fetch(url, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(academicData)
-      })
-      .then(response => {
-        if (response.ok) {
-          // A requisição foi bem-sucedida, os dados foram armazenados no banco de dados
-          console.log('Informações acadêmicas foram editadas com sucesso');
-          // Chamar a função para exibir a informação acadêmica criada
-          exibirInformacaoAcademica(academicData);
-          // Limpar o formulário após o envio
-          form.reset();
-        } else {
-          // A requisição falhou
-          throw new Error('Erro ao editar informações acadêmicas');
-        }
-      })
-      .catch(error => {
-        // Ocorreu um erro ao enviar a requisição
-        console.error(error);
-      });
-    });
-    
-    document.body.appendChild(form);
-  });
-</script>
-
-<script>
-  document.getElementById('deleteEducationBtn').addEventListener('click', function() {
-    // Exibir a confirmação de apagar
-    console.log('Botão de apagar de informações acadêmicas clicado!');
-    
-    const form = document.createElement('form');
-    form.id = 'deleteForm';
-    
-    const idLabel = document.createElement('label');
-    idLabel.textContent = 'Id:';
-    const idInput = document.createElement('input');
-    idInput.type = 'number';
-    idInput.id = 'deleteId';
-    idInput.name = 'deleteId';
-    idInput.required = true;
-    
-    const submitButton = document.createElement('button');
-    submitButton.type = 'submit';
-    submitButton.textContent = 'Excluir';
-    
-    form.appendChild(idLabel);
-    form.appendChild(idInput);
-    form.appendChild(submitButton);
-    
-    form.addEventListener('submit', function(event) {
-      event.preventDefault();
-      
-      // Obter o valor do campo de ID
-      const id = document.getElementById('deleteId').value;
-      
-      const url = `http://localhost:4242/api/academic/${id}`;
-
-      // Enviar a requisição para o servidor usando a API Fetch
-      fetch(url, {
-        method: 'DELETE',
-      })
-      .then(response => {
-        if (response.ok) {
-          // A requisição foi bem-sucedida, os dados foram apagadas do banco de dados
-          console.log('Informações acadêmicas foram apagadas com sucesso');
-          // Remover a informação acadêmica da exibição
-          removerInformacaoAcademica(id);
-          // Atualizar as informações acadêmicas após a exclusão
-          atualizarInformacoesAcademicas();
-          // Limpar o formulário após o envio
-          form.reset();
-        } else {
-          // A requisição falhou
-          throw new Error('Erro ao apagar informações acadêmicas');
-        }
-      })
-      .catch(error => {
-        // Ocorreu um erro ao enviar a requisição
-        console.error(error);
-      });
-    });
-    
-    document.body.appendChild(form);
-  });
-
-  // Função para remover a informação acadêmica da exibição
-  function removerInformacaoAcademica(id) {
-    const academicCard = document.getElementById(`academic-${id}`);
-    if (academicCard) {
-      academicCard.remove();
-    }
-  }
-  
-    // Função para atualizar as informações acadêmicas após a exclusão
-    function atualizarInformacoesAcademicas() {
-      // Limpar a exibição atual
-      const educationDiv = document.getElementById('education');
-      educationDiv.innerHTML = '';
-  
-      // Requisitar e exibir as novas informações acadêmicas
-      fetch('http://localhost:4242/api/academic/')
-        .then(response => response.json())
-        .then(data => {
-          data.forEach(academicData => {
-            exibirInformacaoAcademica(academicData);
-          });
-        })
-        .catch(error => {
-          console.error(error);
-        });
-    }
-</script>
 
 </body>
 </html>

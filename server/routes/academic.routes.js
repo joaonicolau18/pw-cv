@@ -15,10 +15,10 @@ academicRoutes.post('/create', createAcademicQualification);
 academicRoutes.get('/', getAcademicQualification);
 
 // PUT 
-academicRoutes.put('/:id', updateAcademicQualification);
+academicRoutes.put('/update/:id', updateAcademicQualification);
 
 // DELETE 
-academicRoutes.delete('/:id', deleteAcademicQualification);
+academicRoutes.delete('/delete/:id', deleteAcademicQualification);
 
 export { academicRoutes };
 

@@ -8,7 +8,7 @@ const ContactModel = database.define(
       autoIncrement: true,
       primaryKey: true,
     },
-    name: {
+    location: {
       type: STRING,
       allowNull: true,
     },
