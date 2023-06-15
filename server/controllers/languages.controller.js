@@ -23,3 +23,25 @@ export const getLanguages = async (req, res) => {
     return res.status(500).json({ error: 'Internal server error' });
   }
 };
+
+// Excluir uma Language pelo nome
+export const deleteLanguage = async (req, res) => {
+  const { name } = req.params;
+
+  try {
+    // Verifique se a Language existe
+    const language = await languageModel.findOne({ name });
+
+    if (!language) {
+      return res.status(404).json({ message: 'Language não encontrada' });
+    }
+
+    // Exclua a Language
+    await language.destroy();
+
+    res.json({ message: 'Language excluída com sucesso' });
+  } catch (error) {
+    console.error('Erro ao excluir a Language:', error);
+    res.status(500).json({ message: 'Erro ao excluir a Language' });
+  }
+};

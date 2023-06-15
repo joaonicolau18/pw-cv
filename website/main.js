@@ -1,7 +1,10 @@
 window.onload = (event) => {
   exibirInformacoesAcademicas();
+  exibirExperienciasProfissionais();
   exibirSkills();
   exibirLanguages();
+  exibirContacts();
+  deleteLanguage();
 };
 
 function checkAuthentication() {
@@ -13,6 +16,8 @@ function checkAuthentication() {
   const createButton = document.getElementById('addAcademicBtn');
   const addSkillBtn = document.getElementById('addSkillBtn');
   const addLanguageBtn = document.getElementById('addLanguageBtn');
+  const editContactBtn = document.getElementById('editContactBtn');
+  const addExperienceBtn = document.getElementById('addExperienceBtn');
   // Obter os elementos dos botões de editar e excluir
   const editButtons = document.getElementsByClassName('edit-button');
   const deleteButtons = document.getElementsByClassName('delete-button');
@@ -21,6 +26,20 @@ function checkAuthentication() {
   createButton.style.display = isAuthenticated ? 'block' : 'none';
   addSkillBtn.style.display = isAuthenticated ? 'block' : 'none';
   addLanguageBtn.style.display = isAuthenticated ? 'block' : 'none';
+  editContactBtn.style.display = isAuthenticated? 'block' : 'none';
+  addExperienceBtn.style.display = isAuthenticated? 'block' : 'none';
+
+  const loginButton = document.getElementById('loginButton');
+  const logoutButton = document.getElementById('logoutButton');
+
+  // Exibir ou ocultar os botões com base na autenticação
+  if (isAuthenticated) {
+    loginButton.style.display = 'none';
+    logoutButton.style.display = 'block';
+  } else {
+    loginButton.style.display = 'block';
+    logoutButton.style.display = 'none';
+  }
 
   // Exibir ou ocultar os botões com base na autenticação
   for (let i = 0; i < editButtons.length; i++) {
@@ -34,6 +53,19 @@ function checkAuthentication() {
 
 // Chamar a função de verificação de autenticação ao carregar a página
 checkAuthentication();
+
+// Obtém uma referência ao botão de logout
+const logoutButton = document.getElementById('logoutButton');
+
+// Define o evento de clique no botão de logout
+logoutButton.addEventListener('click', function() {
+  // Remove o token do Local Storage
+  localStorage.removeItem('token');
+
+  window.location.href = '/website/index.html';
+});
+
+
 
 function exibirSkills() {
   const url = 'http://localhost:4242/api/skills';
@@ -261,6 +293,7 @@ saveLanguageBtn.addEventListener('click', function() {
     .then((response) => response.json())
     .then((data) => {
       console.log('Nova Language criada:', data);
+      location.reload();
     })
     .catch((error) => {
       console.error('Erro ao criar Language:', error);
@@ -270,6 +303,172 @@ saveLanguageBtn.addEventListener('click', function() {
   newLanguageInput.value = '';
   newLevelLanguagesInput.value = '';
 });
+
+function deleteLanguage() {
+  // Obtém uma referência ao botão de excluir
+  const removeLanguageBtn = document.getElementById('removeLanguageBtn');
+
+  // Obtém uma referência aos elementos do modal de exclusão
+  const deleteModal = document.getElementById('deleteModal');
+  const closeDeleteModalBtn = document.getElementById('closeDeleteLanguarModalBtn');
+  const confirmDeleteBtn = document.getElementById('confirmDeleteBtn');
+  const languageSelect = document.getElementById('languageSelect');
+
+  // Define o evento de clique no botão de excluir
+  removeLanguageBtn.addEventListener('click', function() {
+    // Exibe o modal de exclusão
+    deleteModal.style.display = 'block';
+  });
+
+  // Define o evento de clique no botão "Fechar" do modal de exclusão
+  closeDeleteModalBtn.addEventListener('click', function() {
+    // Oculta o modal de exclusão
+    deleteModal.style.display = 'none';
+  });
+
+  // Define o evento de clique no botão "Confirmar" do modal de exclusão
+  confirmDeleteBtn.addEventListener('click', function() {
+    // Obtém o nome da Language selecionada
+    const name = languageSelect.value;
+
+    // Verifica se um nome de Language foi selecionado
+    if (name) {
+      // Define a URL da API de exclusão da Language com base no nome
+      const deleteURL = `http://localhost:4242/api/languages/delete/${name}`;
+
+      // Envia a solicitação DELETE para a API
+      fetch(deleteURL, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      })
+        .then((response) => {
+          if (response.ok) {
+            console.log('Language excluída com sucesso');
+            // Realize as ações necessárias após a exclusão da Language
+            location.reload();
+          } else {
+            throw new Error('Erro ao excluir a Language');
+          }
+        })
+        .catch((error) => {
+          console.error('Erro:', error);
+        });
+
+      // Oculta o modal de exclusão
+      deleteModal.style.display = 'none';
+    }
+  });
+
+  // Busca os nomes das linguagens do servidor e preenche o seletor
+  fetch('http://localhost:4242/api/languages')
+    .then((response) => response.json())
+    .then((data) => {
+      // Remove todas as opções existentes no seletor
+      while (languageSelect.firstChild) {
+        languageSelect.firstChild.remove();
+      }
+
+      // Preenche o seletor com as opções dos nomes das linguagens
+      data.forEach((language) => {
+        const option = document.createElement('option');
+        option.value = language.name;
+        option.textContent = language.name;
+        languageSelect.appendChild(option);
+      });
+    })
+    .catch((error) => {
+      console.error('Erro ao obter os nomes das linguagens:', error);
+    });
+}
+
+// Chama a função para inicializar o modal de exclusão e a lógica de exclusão da Language
+deleteLanguage();
+
+
+function exibirContacts() {
+  const url = 'http://localhost:4242/api/contacts';
+
+  // Obtém os contacts do servidor
+  fetch(url)
+    .then((response) => response.json())
+    .then((data) => {
+      // Limpa o container de contacts
+      const contactContainer = document.getElementById('contactContainer');
+      contactContainer.innerHTML = '';
+
+      // Exibe cada contact no container
+      data.forEach((contact) => {
+        const { id, location, email, phone } = contact;
+
+        const contactInfo = document.createElement('div');
+        contactInfo.innerHTML = `
+          <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>${location}</p>
+          <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>${email}</p>
+          <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>${phone}</p>
+          <hr>
+        `;
+
+        contactContainer.appendChild(contactInfo);
+
+        // Botão de editar
+        const editContactBtn = document.getElementById('editContactBtn');
+        const modalContact = document.getElementById('editModalContact');
+        const closeContactModalBtn = document.getElementById('closeContactModalBtn');
+        const newLocationInput = document.getElementById('newLocation');
+        const newEmailInput = document.getElementById('newEmail');
+        const newPhoneInput = document.getElementById('newPhone');
+        const saveContactBtn = document.getElementById('saveContactBtn');
+
+        editContactBtn.addEventListener('click', () => {
+          modalContact.style.display = 'block';
+
+          newLocationInput.value = location;
+          newEmailInput.value = email;
+          newPhoneInput.value = phone;
+        });
+
+        closeContactModalBtn.addEventListener('click', () => {
+          modalContact.style.display = 'none';
+        });
+
+        saveContactBtn.addEventListener('click', () => {
+          const updatedContact = {
+            location: newLocationInput.value,
+            email: newEmailInput.value,
+            phone: newPhoneInput.value,
+          };
+
+          const updateUrl = `http://localhost:4242/api/contacts/update/${id}`;
+          // Faça a requisição PUT para atualizar o contact no servidor
+          fetch(updateUrl, {
+            method: 'PUT',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(updatedContact),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              console.log('Contact atualizado:', data);
+              modalContact.style.display = 'none';
+
+              // Atualizar a exibição das informações acadêmicas
+              exibirContacts();
+            })
+            .catch((error) => {
+              console.error('Erro ao atualizar o contact:', error);
+            });
+        });
+      });
+    })
+    .catch((error) => {
+      console.error('Erro ao obter contacts:', error);
+    });
+}
+// Chama a função para exibir os contatos
+exibirContacts();
 
 
 function exibirInformacoesAcademicas() {
@@ -393,7 +592,8 @@ function exibirInformacoesAcademicas() {
           }
         });
         academicCard.appendChild(deleteButton);
-
+        const hr = document.createElement('hr');
+        academicCard.appendChild(hr);
         academicContainer.appendChild(academicCard);
       });
 
@@ -614,7 +814,8 @@ function exibirExperienciasProfissionais() {
           }
         });
         experienceCard.appendChild(deleteButton);
-
+        const hr = document.createElement('hr');
+        experienceCard.appendChild(hr);
         professionalExperienceContainer.appendChild(experienceCard);
       });
 

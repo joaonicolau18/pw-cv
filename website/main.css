@@ -13,7 +13,16 @@ body {
 }
 
 .title {
-  color: white;
+  color: black;
+}
+
+.img {
+  scale: 75%;
+}
+
+.button-container {
+  display: flex;
+  gap: 10px;
 }
 
 .login {

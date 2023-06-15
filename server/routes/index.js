@@ -6,6 +6,7 @@ import { academicRoutes } from './academic.routes.js';
 import { professionalExperienceRoutes } from './experience.routes.js';
 import { skillRoutes } from './skill.routes.js';
 import { languageRoutes } from './languages.routes.js';
+import { contactRoutes } from './contact.routes.js';
 
 const api = Router();
 // http://localhost:4242/api/todo ....
@@ -22,6 +23,9 @@ api.use('/experience', professionalExperienceRoutes);
 
 // http://localhost:4242/api/skills ....
 api.use('/skills', skillRoutes);
+
+// http://localhost:4242/api/contact ....
+api.use('/contacts', contactRoutes);
 
 // http://localhost:4242/api/languages ....
 api.use('/languages', languageRoutes);

@@ -1,5 +1,5 @@
 import Router from 'express';
-import { createLanguage, getLanguages } from '../controllers/languages.controller.js';
+import { createLanguage, getLanguages, deleteLanguage } from '../controllers/languages.controller.js';
 
 const languageRoutes = Router();
 
@@ -8,5 +8,7 @@ languageRoutes.post('/create', createLanguage);
 
 // Rota para obter todas as habilidades
 languageRoutes.get('/', getLanguages);
+
+languageRoutes.delete('/delete/:name', deleteLanguage);
 
 export { languageRoutes };
